@@ -1,5 +1,5 @@
-🍦 IceCream Application – DevOps Deployment Project
-📌 Project Overview
+# 🍦 IceCream Application – DevOps Deployment Project
+## 📌 Project Overview
 
 This project demonstrates the containerization, orchestration, load testing, monitoring, and fault tolerance validation of the IceCream web application using modern DevOps tools.
 
@@ -17,7 +17,7 @@ Orchestrated using Kubernetes (Minikube)
 
 The objective was to migrate a locally running application into a fully containerized and orchestrated infrastructure while validating performance and reliability under load.
 
-🏗️ System Architecture
+## 🏗️ System Architecture
 User
   ↓
 NodePort Service
@@ -32,7 +32,7 @@ MongoDB runs as a separate pod within the cluster.
 
 The NodePort service exposes the application externally.
 
-📂 Project Structure
+## 📂 Project Structure
 IceCream/
 │
 ├── Dockerfile
@@ -49,7 +49,7 @@ IceCream/
 │   ├── mongo-deployment.yaml
 │
 └── README.md
-🚀 Running the Application Locally
+## 🚀 Running the Application Locally
 1️⃣ Install Dependencies
 npm install
 2️⃣ Start MongoDB Locally
@@ -63,7 +63,7 @@ npm start
 Access the app at:
 
 http://localhost:3000
-🐳 Running with Docker
+### 🐳 Running with Docker
 1️⃣ Build Docker Image
 docker build -t icecream-app .
 2️⃣ Run Container
@@ -79,7 +79,7 @@ abc123         icecream-app    0.0.0.0:3000->3000/tcp   icecream
 Access:
 
 http://localhost:3000
-🐳 Docker Compose (Multi-Container Setup)
+## 🐳 Docker Compose (Multi-Container Setup)
 
 Start both application and MongoDB:
 
@@ -92,7 +92,7 @@ docker ps
 Stop:
 
 docker-compose down
-☸️ Kubernetes Deployment (Minikube)
+## ☸️ Kubernetes Deployment (Minikube)
 1️⃣ Start Minikube
 minikube start
 2️⃣ Point Docker to Minikube
@@ -118,7 +118,7 @@ kubectl port-forward service/icecream-service 8080:80
 Access:
 
 http://127.0.0.1:8080
-📊 Load Testing
+## 📊 Load Testing
 
 Load testing was performed using ApacheBench (ab).
 
@@ -144,7 +144,7 @@ Average Response Time: 10621 ms
 
 The system handled high concurrency without crashing or failing requests.
 
-📈 Monitoring and Observability
+## 📈 Monitoring and Observability
 
 Metrics-server was enabled:
 
@@ -162,7 +162,7 @@ MongoDB	~10m	~175Mi
 
 The system remained stable under load.
 
-💥 Fault Tolerance Validation
+## 💥 Fault Tolerance Validation
 
 To test Kubernetes self-healing:
 
@@ -180,7 +180,7 @@ No downtime observed
 
 This confirms Kubernetes deployment controller and ReplicaSet functionality.
 
-🔄 Scaling (Optional Enhancement)
+## 🔄 Scaling (Optional Enhancement)
 
 Manual scaling:
 
@@ -189,7 +189,7 @@ kubectl scale deployment icecream --replicas=4
 Auto-scaling (if configured):
 
 kubectl autoscale deployment icecream --cpu-percent=50 --min=2 --max=6
-🛠️ Challenges Encountered
+## 🛠️ Challenges Encountered
 
 ImagePullBackOff due to local image scope
 
@@ -199,7 +199,7 @@ Metrics-server initialization delay
 
 Increased response time under heavy load
 
-📌 Future Improvements
+## 📌 Future Improvements
 
 Implement Horizontal Pod Autoscaler
 
@@ -211,7 +211,7 @@ Implement CI/CD pipeline
 
 Use persistent volumes for MongoDB
 
-🧪 Commands Reference
+## 🧪 Commands Reference
 Docker
 docker build -t icecream-app .
 docker ps
@@ -223,7 +223,7 @@ kubectl get services
 kubectl describe service icecream-service
 kubectl delete pod 64cd59c79b-9wzvk
 kubectl top pods
-📚 Technologies Used
+## 📚 Technologies Used
 
 Node.js
 
@@ -239,7 +239,7 @@ Minikube
 
 ApacheBench
 
-✅ Project Status
+## ✅ Project Status
 
 ✔ Containerized
 ✔ Deployed to Kubernetes
@@ -247,6 +247,6 @@ ApacheBench
 ✔ Monitored via metrics-server
 ✔ Fault tolerance validated
 
-⭐ Final Notes
+## ⭐ Final Notes
 
 This project demonstrates practical implementation of DevOps principles including containerization, orchestration, scalability, resilience, and performance evaluation.
