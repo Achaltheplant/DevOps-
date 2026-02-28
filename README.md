@@ -212,9 +212,13 @@ This confirms Kubernetes deployment controller and ReplicaSet functionality.
 ## ✅ Project Status
 
 ✔ Containerized
+
 ✔ Deployed to Kubernetes
+
 ✔ Load tested (500 concurrent users)
+
 ✔ Monitored via metrics-server
+
 ✔ Fault tolerance validated
 
 ## ⭐ Final Notes
