@@ -29,24 +29,25 @@ MongoDB runs as a separate pod within the cluster.
 The NodePort service exposes the application externally.
 
 ## 📂 Project Structure
------------------------------------------------------
+
 IceCream/
-│
-├── Dockerfile
-├── docker-compose.yml
-├── package.json
-├── index.js
-├── config/
-├── routes/
-├── views/
-│
-├── k8s/
-│   ├── deployment.yaml
-│   ├── service.yaml
-│   ├── mongo-deployment.yaml
-│
-└── README.md
------------------------------------------------------
+  
+    │
+    ├── Dockerfile
+    ├── docker-compose.yml
+    ├── package.json
+    ├── index.js
+    ├── config/
+    ├── routes/
+    ├── views/
+    │
+    ├── k8s/
+    │   ├── deployment.yaml
+    │   ├── service.yaml
+    │   ├── mongo-deployment.yaml
+    │
+    └── README.md
+
 ## 🚀 Running the Application Locally
 1️⃣ Install Dependencies
 npm install
