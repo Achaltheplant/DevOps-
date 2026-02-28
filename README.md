@@ -1,4 +1,5 @@
 # 🍦 IceCream Application – DevOps Deployment Project
+---------------------------------------
 ## 📌 Project Overview
 
 This project demonstrates the containerization, orchestration, load testing, monitoring, and fault tolerance validation of the IceCream web application using modern DevOps tools.
@@ -62,7 +63,8 @@ npm start
 Access the app at:
 http://localhost:3000
 
-### 🐳 Running with Docker
+## 🐳 Running with Docker
+
 1️⃣ Build Docker Image
 docker build -t icecream-app .
 
@@ -89,8 +91,8 @@ Verify:
 docker ps
 
 Stop:
-
 docker-compose down
+
 ## ☸️ Kubernetes Deployment (Minikube)
 1️⃣ Start Minikube
 minikube start
@@ -170,64 +172,42 @@ Observed behavior:
 
 This confirms Kubernetes deployment controller and ReplicaSet functionality.
 
-## 🔄 Scaling (Optional Enhancement)
-
-Manual scaling:
-
-kubectl scale deployment icecream --replicas=4
-
-Auto-scaling (if configured):
-
-kubectl autoscale deployment icecream --cpu-percent=50 --min=2 --max=6
 ## 🛠️ Challenges Encountered
 
-ImagePullBackOff due to local image scope
-
-Networking limitations with Minikube on Windows
-
-Metrics-server initialization delay
-
-Increased response time under heavy load
+* ImagePullBackOff due to local image scope
+* Networking limitations with Minikube on Windows
+* Metrics-server initialization delay
+* Increased response time under heavy load
 
 ## 📌 Future Improvements
 
-Implement Horizontal Pod Autoscaler
-
-Configure liveness and readiness probes
-
-Add resource limits to deployments
-
-Implement CI/CD pipeline
-
-Use persistent volumes for MongoDB
+* Implement Horizontal Pod Autoscaler
+* Configure liveness and readiness probes
+* Add resource limits to deployments
+* Implement CI/CD pipeline
+* Use persistent volumes for MongoDB
 
 ## 🧪 Commands Reference
-Docker
-docker build -t icecream-app .
-docker ps
-docker-compose up
-Kubernetes
-kubectl apply -f k8s/
-kubectl get pods
-kubectl get services
-kubectl describe service icecream-service
-kubectl delete pod 64cd59c79b-9wzvk
-kubectl top pods
+    Docker
+    docker build -t icecream-app .
+    docker ps
+    docker-compose up
+    Kubernetes
+    kubectl apply -f k8s/
+    kubectl get pods
+    kubectl get services
+    kubectl describe service icecream-service
+    kubectl delete pod 64cd59c79b-9wzvk
+    kubectl top pods
 ## 📚 Technologies Used
 
-Node.js
-
-MongoDB
-
-Docker
-
-Docker Compose
-
-Kubernetes
-
-Minikube
-
-ApacheBench
+* Node.js
+* MongoDB
+* Docker
+* Docker Compose
+* Kubernetes
+* Minikube
+* ApacheBench
 
 ## ✅ Project Status
 
