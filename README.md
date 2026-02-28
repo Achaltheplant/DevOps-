@@ -30,8 +30,7 @@ The NodePort service exposes the application externally.
 
 ## 📂 Project Structure
 
-IceCream/
-  
+    IceCream/  
     │
     ├── Dockerfile
     ├── docker-compose.yml
@@ -75,20 +74,18 @@ docker ps
 
 Example output:
 
-CONTAINER ID   IMAGE           PORTS                    NAMES
-abc123         icecream-app    0.0.0.0:3000->3000/tcp   icecream
+    CONTAINER ID   IMAGE           PORTS                    NAMES
+    abc123         icecream-app    0.0.0.0:3000->3000/tcp   icecream
 
 Access:
-
 http://localhost:3000
+
 ## 🐳 Docker Compose (Multi-Container Setup)
 
 Start both application and MongoDB:
-
 docker-compose up --build
 
 Verify:
-
 docker ps
 
 Stop:
@@ -97,88 +94,79 @@ docker-compose down
 ## ☸️ Kubernetes Deployment (Minikube)
 1️⃣ Start Minikube
 minikube start
+
 2️⃣ Point Docker to Minikube
 minikube docker-env | Invoke-Expression
+
 3️⃣ Build Image Inside Minikube
 docker build -t icecream-app .
+
 4️⃣ Deploy to Kubernetes
 kubectl apply -f k8s/
 
 Verify pods:
-
 kubectl get pods
 
 Verify services:
-
 kubectl get services
+
 5️⃣ Access Application
 
 Port forward:
-
 kubectl port-forward service/icecream-service 8080:80
 
 Access:
-
 http://127.0.0.1:8080
+
 ## 📊 Load Testing
 
 Load testing was performed using ApacheBench (ab).
 
 Command Used:
 ab -n 30000 -c 500 http://127.0.0.1:8080/
+
 Test Configuration:
 
-30,000 total requests
-
-500 concurrent users
+* 30,000 total requests
+* 500 concurrent users
 
 Results:
 
-Concurrency Level: 500
-
-Complete Requests: 30000
-
-Failed Requests: 0
-
-Requests per second: 47.07
-
-Average Response Time: 10621 ms
+* Concurrency Level: 500
+* Complete Requests: 30000
+* Failed Requests: 0
+* Requests per second: 47.07
+* Average Response Time: 10621 ms
 
 The system handled high concurrency without crashing or failing requests.
 
 ## 📈 Monitoring and Observability
 
 Metrics-server was enabled:
-
 minikube addons enable metrics-server
 
 Resource monitoring:
-
 kubectl top pods
 
 Example observed usage:
 
-Pod	CPU	Memory
-IceCream	4–6m	~42Mi
-MongoDB	~10m	~175Mi
+    Pod	         CPU	    Memory
+    IceCream  	4–6m	     ~42Mi
+    MongoDB	    ~10m    	~175Mi
 
 The system remained stable under load.
 
 ## 💥 Fault Tolerance Validation
 
 To test Kubernetes self-healing:
-
 kubectl delete pod icecream-64cd59c79b-9wzvk
 
 Observed behavior:
 
-Pod terminated
-
-New pod automatically created
-
-Replica count maintained
-
-No downtime observed
+* Pod terminated
+* New pod automatically created
+* Replica count maintained
+* No downtime observed
 
 This confirms Kubernetes deployment controller and ReplicaSet functionality.
 
