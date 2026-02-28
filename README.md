@@ -47,7 +47,9 @@ IceCream/
 └── README.md
 ## 🚀 Running the Application Locally
 1️⃣ Install Dependencies
+---------------------------------------
 npm install
+----------------------------------------
 2️⃣ Start MongoDB Locally
 
 Ensure MongoDB is running:
