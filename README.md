@@ -29,6 +29,7 @@ MongoDB runs as a separate pod within the cluster.
 The NodePort service exposes the application externally.
 
 ## 📂 Project Structure
+-----------------------------------------------------
 IceCream/
 │
 ├── Dockerfile
@@ -45,27 +46,29 @@ IceCream/
 │   ├── mongo-deployment.yaml
 │
 └── README.md
+-----------------------------------------------------
 ## 🚀 Running the Application Locally
 1️⃣ Install Dependencies
----------------------------------------
 npm install
-----------------------------------------
+
 2️⃣ Start MongoDB Locally
 
 Ensure MongoDB is running:
-
 mongod
+
 3️⃣ Start the Application
 npm start
 
 Access the app at:
-
 http://localhost:3000
+
 ### 🐳 Running with Docker
 1️⃣ Build Docker Image
 docker build -t icecream-app .
+
 2️⃣ Run Container
 docker run -p 3000:3000 icecream-app
+
 3️⃣ Verify Running Containers
 docker ps
 
