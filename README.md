@@ -15,13 +15,14 @@ The application is built with:
 The objective was to migrate a locally running application into a fully containerized and orchestrated infrastructure while validating performance and reliability under load.
 
 ## 🏗️ System Architecture
-User
-  ↓
-NodePort Service
-  ↓
-IceCream Pods (ReplicaSet - 2 replicas)
-  ↓
-MongoDB Pod
+
+                     User
+                      ↓
+               NodePort Service
+                      ↓
+    IceCream Pods (ReplicaSet - 2 replicas)
+                      ↓
+                 MongoDB Pod
 
 The application runs as multiple replicas for high availability.
 
@@ -49,15 +50,18 @@ The NodePort service exposes the application externally.
     └── README.md
 
 ## 🚀 Running the Application Locally
-1️⃣ Install Dependencies
+1️⃣ Install Dependencies:
+
 npm install
 
 2️⃣ Start MongoDB Locally
 
 Ensure MongoDB is running:
+
 mongod
 
-3️⃣ Start the Application
+3️⃣ Start the Application:
+
 npm start
 
 Access the app at:
@@ -65,13 +69,16 @@ http://localhost:3000
 
 ## 🐳 Running with Docker
 
-1️⃣ Build Docker Image
+1️⃣ Build Docker Image:
+
 docker build -t icecream-app .
 
-2️⃣ Run Container
+2️⃣ Run Container:
+
 docker run -p 3000:3000 icecream-app
 
-3️⃣ Verify Running Containers
+3️⃣ Verify Running Containers:
+
 docker ps
 
 Example output:
@@ -80,44 +87,56 @@ Example output:
     abc123         icecream-app    0.0.0.0:3000->3000/tcp   icecream
 
 Access:
+
 http://localhost:3000
 
 ## 🐳 Docker Compose (Multi-Container Setup)
 
 Start both application and MongoDB:
+
 docker-compose up --build
 
 Verify:
+
 docker ps
 
 Stop:
+
 docker-compose down
 
 ## ☸️ Kubernetes Deployment (Minikube)
 1️⃣ Start Minikube
+
 minikube start
 
 2️⃣ Point Docker to Minikube
+
 minikube docker-env | Invoke-Expression
 
 3️⃣ Build Image Inside Minikube
+
 docker build -t icecream-app .
 
 4️⃣ Deploy to Kubernetes
+
 kubectl apply -f k8s/
 
 Verify pods:
+
 kubectl get pods
 
 Verify services:
+
 kubectl get services
 
 5️⃣ Access Application
 
 Port forward:
+
 kubectl port-forward service/icecream-service 8080:80
 
 Access:
+
 http://127.0.0.1:8080
 
 ## 📊 Load Testing
@@ -125,6 +144,7 @@ http://127.0.0.1:8080
 Load testing was performed using ApacheBench (ab).
 
 Command Used:
+
 ab -n 30000 -c 500 http://127.0.0.1:8080/
 
 Test Configuration:
@@ -145,9 +165,11 @@ The system handled high concurrency without crashing or failing requests.
 ## 📈 Monitoring and Observability
 
 Metrics-server was enabled:
+
 minikube addons enable metrics-server
 
 Resource monitoring:
+
 kubectl top pods
 
 Example observed usage:
