@@ -5,15 +5,11 @@ This project demonstrates the containerization, orchestration, load testing, mon
 
 The application is built with:
 
-Node.js (Express)
-
-MongoDB
-
-EJS templating engine
-
-Containerized using Docker
-
-Orchestrated using Kubernetes (Minikube)
+* Node.js (Express)
+* MongoDB
+* EJS templating engine
+* Containerized using Docker
+* Orchestrated using Kubernetes (Minikube)
 
 The objective was to migrate a locally running application into a fully containerized and orchestrated infrastructure while validating performance and reliability under load.
 
